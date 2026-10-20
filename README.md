@@ -1,39 +1,58 @@
+# Student Performance Prediction Using Machine Learning
 
-# Student Performance Prediction
+## Project Overview
+This project uses a Linear Regression model to predict student exam scores based on study hours and attendance.
 
-## Overview
-A beginner-friendly Python project exploring the
-relationship between students' study hours, attendance,
-and exam scores.
-
-## Technologies
+## Technologies Used
 - Python
 - Pandas
-- Data analysis
+- Scikit-learn
+- Linear Regression
+- Model Evaluation
 
-## Features
-- Creates a sample student dataset
-- Calculates the average exam score
-- Generates descriptive statistics
+## Dataset
+A small synthetic dataset containing:
+- Study hours
+- Attendance percentage
+- Exam scores
+
+**Note:** The dataset is synthetic and is intended for educational purposes only.
+
+## Project Workflow
+1. Created a sample dataset using Pandas.
+2. Selected study hours and attendance as input features.
+3. Split the data into training and testing sets.
+4. Trained a Linear Regression model.
+5. Evaluated model performance using MAE and R².
+6. Generated a prediction for a new student.
+
+## Results
+
+- **Mean Absolute Error (MAE):** 1.78
+- **R² Score:** 0.9862
+- **Example prediction:** 63.29 for a student studying 5 hours with 80% attendance.
+
+These results are based on a very small synthetic dataset and should not be interpreted as real-world model performance.
 
 ## How to Run
-Install Python and Pandas:
+
+Install the required libraries:
 
 ```bash
-pip install pandas
+py -m pip install pandas scikit-learn
 ```
 
 Run the project:
 
 ```bash
-python student_performance.py
+py student_performance.py
 ```
 
 ## Future Improvements
-- Visualize the data
-- Train a machine learning model
-- Evaluate prediction accuracy
-- Build a simple web application
+- Visualize study hours and exam scores.
+- Evaluate the model on a larger dataset.
+- Compare multiple machine learning algorithms.
+- Build an interactive prediction interface.
 
-## Disclaimer
-The dataset is synthetic and is used for learning only.
+## Author
+Srichandana Rangula
