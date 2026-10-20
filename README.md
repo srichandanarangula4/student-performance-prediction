@@ -1,58 +1,70 @@
-# Student Performance Prediction Using Machine Learning
 
-## Project Overview
-This project uses a Linear Regression model to predict student exam scores based on study hours and attendance.
+# Student Performance Prediction
 
-## Technologies Used
+## Overview
+A beginner-friendly Python project exploring the
+relationship between students' study hours, attendance,
+and exam scores.
+
+## Technologies
 - Python
 - Pandas
-- Scikit-learn
-- Linear Regression
-- Model Evaluation
+- Data analysis
 
-## Dataset
-A small synthetic dataset containing:
-- Study hours
-- Attendance percentage
-- Exam scores
-
-**Note:** The dataset is synthetic and is intended for educational purposes only.
-
-## Project Workflow
-1. Created a sample dataset using Pandas.
-2. Selected study hours and attendance as input features.
-3. Split the data into training and testing sets.
-4. Trained a Linear Regression model.
-5. Evaluated model performance using MAE and R².
-6. Generated a prediction for a new student.
-
-## Results
-
-- **Mean Absolute Error (MAE):** 1.78
-- **R² Score:** 0.9862
-- **Example prediction:** 63.29 for a student studying 5 hours with 80% attendance.
-
-These results are based on a very small synthetic dataset and should not be interpreted as real-world model performance.
+## Features
+- Creates a sample student dataset
+- Calculates the average exam score
+- Generates descriptive statistics
 
 ## How to Run
-
-Install the required libraries:
+Install Python and Pandas:
 
 ```bash
-py -m pip install pandas scikit-learn
+pip install pandas
 ```
 
 Run the project:
 
 ```bash
-py student_performance.py
+python student_performance.py
 ```
 
 ## Future Improvements
-- Visualize study hours and exam scores.
-- Evaluate the model on a larger dataset.
-- Compare multiple machine learning algorithms.
-- Build an interactive prediction interface.
+- Visualize the data
+- Train a machine learning model
+- Evaluate prediction accuracy
+- Build a simple web application
 
-## Author
-Srichandana Rangula
+## Disclaimer
+The dataset is synthetic and is used for learning only.
+
+
+## Run the Streamlit Web App
+
+1. Install Python.
+2. Download or clone this repository.
+3. Open a terminal in the project folder.
+4. Install the required packages:
+
+   ```bash
+   py -m pip install -r requirements.txt
+   ```
+
+5. Start the web app:
+
+   ```bash
+   py -m streamlit run app.py
+   ```
+
+6. Open the local URL shown in the terminal, usually `http://localhost:8501`.
+
+### Web App Features
+
+- Predict exam scores using study hours and attendance.
+- Interactive input sliders.
+- Dynamic prediction summary.
+- Predicted-score progress bar.
+- Study-hours versus exam-scores chart.
+
+**Note:** This is an educational demo trained on a small synthetic dataset. Predictions are not validated for real-world use.
+
