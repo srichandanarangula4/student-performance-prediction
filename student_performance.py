@@ -1,5 +1,7 @@
 
 import pandas as pd
+import matplotlib.pyplot as plt
+
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, r2_score
@@ -13,7 +15,7 @@ data = {
 
 df = pd.DataFrame(data)
 
-# 2. Select input features and target
+# 2. Select features and target
 X = df[["study_hours", "attendance"]]
 y = df["exam_score"]
 
@@ -22,7 +24,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.25, random_state=42
 )
 
-# 4. Train the machine learning model
+# 4. Train the model
 model = LinearRegression()
 model.fit(X_train, y_train)
 
@@ -32,7 +34,7 @@ predictions = model.predict(X_test)
 print("Mean Absolute Error:", mean_absolute_error(y_test, predictions))
 print("R2 Score:", r2_score(y_test, predictions))
 
-# 6. Predict a student's exam score
+# 6. Predict for a new student
 new_student = pd.DataFrame({
     "study_hours": [5],
     "attendance": [80]
@@ -40,6 +42,48 @@ new_student = pd.DataFrame({
 
 predicted_score = model.predict(new_student)
 
-print("\nStudent study hours:", 5)
-print("Student attendance:", 80)
+print("\nStudy hours: 5")
+print("Attendance: 80%")
 print("Predicted exam score:", round(predicted_score[0], 2))
+
+# 7. Create charts
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# Chart 1: Study hours versus exam scores
+axes[0].scatter(
+    df["study_hours"], df["exam_score"], label="Student scores"
+)
+axes[0].set_title("Study Hours vs Exam Scores")
+axes[0].set_xlabel("Study Hours")
+axes[0].set_ylabel("Exam Score")
+axes[0].legend()
+axes[0].grid(True)
+
+# Chart 2: Actual versus predicted test scores
+axes[1].scatter(
+    y_test, predictions, label="Predictions"
+)
+
+# Reference line for perfect predictions
+axes[1].plot(
+    [y_test.min(), y_test.max()],
+    [y_test.min(), y_test.max()],
+    linestyle="--",
+    label="Perfect prediction"
+)
+
+axes[1].set_title("Actual vs Predicted Scores")
+axes[1].set_xlabel("Actual Score")
+axes[1].set_ylabel("Predicted Score")
+axes[1].legend()
+axes[1].grid(True)
+
+plt.tight_layout()
+
+# 8. Save the charts in your project folder
+plt.savefig("student_performance_charts.png", dpi=150)
+
+print("\nChart saved as student_performance_charts.png")
+
+# 9. Display the charts
+plt.show()
